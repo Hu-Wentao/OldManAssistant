@@ -54,14 +54,11 @@ public class MainActivity extends AppCompatActivity implements
         // 启用碎片
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();    // ft是 FragmentTransaction 的实例
-        // 初始化Fragment  //todo 可以考虑懒加载
+        // 初始化Fragment
         searchFragment = new SearchFragment();
-        childFragment = new ChildFragment();
-        pushFragment = new PushFragment();
-        circleFragment = new CircleFragment();
-        // 即将创建的fragment添加到Activity布局文件中定义的占位符中（FrameLayout）
+
+        // 将创建的fragment添加到Activity布局文件中定义的占位符中（FrameLayout）
 //        fragmentTransaction.add(R.id.main_fragment_container, searchFragment);
-//        fragmentTransaction.add(R.id.main_fragment_container, childFragment);
         //设置默认碎片
         tvTitleBar.setText(R.string.navigation_search);
         fragmentTransaction.replace(R.id.main_fragment_container, searchFragment).commit();
@@ -76,18 +73,30 @@ public class MainActivity extends AppCompatActivity implements
                     switch (menuItem.getItemId()) {
                         case R.id.navigation_search:
                             tvTitleBar.setText(R.string.navigation_search);
+                            if(searchFragment == null){
+                                searchFragment = new SearchFragment();
+                            }
                             fragmentTransaction.replace(R.id.main_fragment_container, searchFragment);
                             break;
                         case R.id.navigation_child:
                             tvTitleBar.setText(R.string.navigation_child);
+                            if(childFragment == null){
+                                childFragment = new ChildFragment();
+                            }
                             fragmentTransaction.replace(R.id.main_fragment_container, childFragment);
                             break;
                         case R.id.navigation_push:
                             tvTitleBar.setText(R.string.navigation_push);
+                            if(pushFragment == null){
+                                pushFragment = new PushFragment();
+                            }
                             fragmentTransaction.replace(R.id.main_fragment_container, pushFragment);
                             break;
                         case R.id.navigation_circle:
                             tvTitleBar.setText(R.string.navigation_circle);
+                            if(circleFragment == null){
+                                circleFragment = new CircleFragment();
+                            }
                             fragmentTransaction.replace(R.id.main_fragment_container, circleFragment);
                             break;
                         default:
@@ -103,9 +112,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
-    /**
-     * 提交Fragment
-     */
+
     @Override
     public void  onResumeFragments(){
 //        fragmentTransaction.commit();
