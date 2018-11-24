@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.fragment.ChildFragment">
+    tools:context=".main.fragment.ChildFragment"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -13,7 +14,7 @@
         android:layout_height="match_parent">
 
         <ScrollView
-            android:id="@+id/scrollView2"
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="1dp"
@@ -21,10 +22,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside">
 
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:layout_height="match_parent"
+                tools:itemCount="2"
+                tools:listitem="@layout/recycler_view_item">
+
+            </android.support.v7.widget.RecyclerView>
         </ScrollView>
 
         <TextView
@@ -35,10 +39,10 @@
             android:layout_marginBottom="1dp"
             android:background="@color/colorPrimaryLight"
             android:gravity="left|center_vertical"
-            android:text="联系亲人"
+            android:text="       联系亲人"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+            app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -48,23 +52,14 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
 
-            <com.example.huwt.oldmanassistant.ContactLayout
-                app:contact_name="@string/uninitialized"
+            <com.example.huwt.oldmanassistant.ContactView
+
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteY="437dp">
 
-            </com.example.huwt.oldmanassistant.ContactLayout>
-
-            <com.example.huwt.oldmanassistant.ContactLayout
-
-                app:contact_name="@string/uninitialized"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1">
-
-            </com.example.huwt.oldmanassistant.ContactLayout>
-
+            </com.example.huwt.oldmanassistant.ContactView>
 
         </LinearLayout>
 
