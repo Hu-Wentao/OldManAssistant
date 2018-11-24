@@ -49,7 +49,7 @@
 
 
             <com.example.huwt.oldmanassistant.ContactLayout
-
+                app:contact_name="@string/uninitialized"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
@@ -57,11 +57,14 @@
             </com.example.huwt.oldmanassistant.ContactLayout>
 
             <com.example.huwt.oldmanassistant.ContactLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+                app:contact_name="@string/uninitialized"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_weight="1">
 
             </com.example.huwt.oldmanassistant.ContactLayout>
+
 
         </LinearLayout>
 
