@@ -1,63 +1,33 @@
 package com.example.huwt.oldmanassistant.main.fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
-import com.example.huwt.oldmanassistant.LoginActivity;
-import com.example.huwt.oldmanassistant.MainActivity;
 import com.example.huwt.oldmanassistant.R;
-import com.example.huwt.oldmanassistant.User;
+import com.example.huwt.oldmanassistant.TodoAdapter;
+import com.example.huwt.oldmanassistant.db.TodoList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ChildFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ChildFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ChildFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private CircleFragment.OnFragmentInteractionListener mListener;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public ChildFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ChildFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ChildFragment newInstance(String param1, String param2) {
-        ChildFragment fragment = new ChildFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    private RecyclerView rvTodo;
+    private RecyclerView.LayoutManager rvLmLinearVictor;
+    private TodoAdapter todoAdapter;
     /**
      * 创建
      * @param savedInstanceState
@@ -65,62 +35,58 @@ public class ChildFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-        // 如果尚未登录, 就打开 LoginActivity
-//        if (!User.isLogin) {
-//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//            MainActivity.this.finish();
-//            startActivityForResult(new Intent(getActivity(), LoginActivity.class),Activity.RESULT_FIRST_USER);
-//        }
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        initData();
+        initView();
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_child, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+    private void initData(){
+        rvLmLinearVictor = new LinearLayoutManager(getContext(), LinearLayout.VERTICAL, false);
+        todoAdapter = new TodoAdapter(TodoList.getTodoData()); // todo 在此处设置参数
+    }
+    private void initView(){
+        // 查找 RecyclerView
+        rvTodo = getActivity().findViewById(R.id.rv_todo);
+        // 设置LayoutManager 为linearLayoutManager
+        rvTodo.setLayoutManager(rvLmLinearVictor);
+        // 设置Adapter
+        rvTodo.setAdapter(todoAdapter);
+    }
+
+
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof CircleFragment.OnFragmentInteractionListener) {
+            mListener = (CircleFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
     }
 
-    /**
-     * 最后一个回调
-     */
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

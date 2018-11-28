@@ -23,10 +23,10 @@
             app:layout_constraintVertical_chainStyle="spread_inside">
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_todo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:itemCount="2"
-                tools:listitem="@layout/recycler_view_item">
+                tools:listitem="@layout/rv_item">
 
             </android.support.v7.widget.RecyclerView>
         </ScrollView>
@@ -53,22 +53,30 @@
 
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/contact1"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/call"
+                android:drawableTop="@drawable/call_100"
                 android:scrollbarAlwaysDrawHorizontalTrack="false"
                 android:scrollbarAlwaysDrawVerticalTrack="false"
-                android:text="TextView" />
+                android:text="张三"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="321dp" />
 
             <TextView
-                android:id="@+id/textView2"
-                android:drawableTop="@drawable/call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/contact2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:drawableTop="@drawable/call_100"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                android:text="李四"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="188dp"
+                tools:layout_editor_absoluteY="321dp" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

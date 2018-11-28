@@ -43,17 +43,21 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initView();
         // 如果尚未登录, 就打开 LoginActivity
 //        if (!User.isLogin) {
 //            startActivity(new Intent(MainActivity.this, LoginActivity.class));
 //            MainActivity.this.finish();
 //        }
-
+    }
+    
+    private void initView(){
         // 初始化控件
         tvTitleBar = findViewById(R.id.tv_title_bar);
         // 启用碎片
         fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();    // ft是 FragmentTransaction 的实例
+        fragmentTransaction = fragmentManager
+                .beginTransaction();    // ft是 FragmentTransaction 的实例
         // 初始化Fragment
         searchFragment = new SearchFragment();
 
@@ -61,55 +65,55 @@ public class MainActivity extends AppCompatActivity implements
 //        fragmentTransaction.add(R.id.main_fragment_container, searchFragment);
         //设置默认碎片
         tvTitleBar.setText(R.string.navigation_search);
-        fragmentTransaction.replace(R.id.main_fragment_container, searchFragment).commit();
+        fragmentTransaction
+                .replace(R.id.main_fragment_container, searchFragment)
+                .commit();
 
         // 找 BottomNavigationView
         bnv = findViewById(R.id.main_bnv);
         bnv.setOnNavigationItemSelectedListener(
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    switch (menuItem.getItemId()) {
-                        case R.id.navigation_search:
-                            tvTitleBar.setText(R.string.navigation_search);
-                            if(searchFragment == null){
-                                searchFragment = new SearchFragment();
-                            }
-                            fragmentTransaction.replace(R.id.main_fragment_container, searchFragment);
-                            break;
-                        case R.id.navigation_child:
-                            tvTitleBar.setText(R.string.navigation_child);
-                            if(childFragment == null){
-                                childFragment = new ChildFragment();
-                            }
-                            fragmentTransaction.replace(R.id.main_fragment_container, childFragment);
-                            break;
-                        case R.id.navigation_push:
-                            tvTitleBar.setText(R.string.navigation_push);
-                            if(pushFragment == null){
-                                pushFragment = new PushFragment();
-                            }
-                            fragmentTransaction.replace(R.id.main_fragment_container, pushFragment);
-                            break;
-                        case R.id.navigation_circle:
-                            tvTitleBar.setText(R.string.navigation_circle);
-                            if(circleFragment == null){
-                                circleFragment = new CircleFragment();
-                            }
-                            fragmentTransaction.replace(R.id.main_fragment_container, circleFragment);
-                            break;
-                        default:
-                            Log.e(TAG, "onNavigationItemSelected: 出现了没有被指定功能的Navigation menuItem");
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction(); // 启用碎片
+                        switch (menuItem.getItemId()) {
+                            case R.id.navigation_search:
+                                tvTitleBar.setText(R.string.navigation_search);
+                                if(searchFragment == null){
+                                    searchFragment = new SearchFragment();
+                                }
+                                fragmentTransaction.replace(R.id.main_fragment_container, searchFragment);
+                                break;
+                            case R.id.navigation_child:
+                                tvTitleBar.setText(R.string.navigation_child);
+                                if(childFragment == null){
+                                    childFragment = new ChildFragment();
+                                }
+                                fragmentTransaction.replace(R.id.main_fragment_container, childFragment);
+                                break;
+                            case R.id.navigation_push:
+                                tvTitleBar.setText(R.string.navigation_push);
+                                if(pushFragment == null){
+                                    pushFragment = new PushFragment();
+                                }
+                                fragmentTransaction.replace(R.id.main_fragment_container, pushFragment);
+                                break;
+                            case R.id.navigation_circle:
+                                tvTitleBar.setText(R.string.navigation_circle);
+                                if(circleFragment == null){
+                                    circleFragment = new CircleFragment();
+                                }
+                                fragmentTransaction.replace(R.id.main_fragment_container, circleFragment);
+                                break;
+                            default:
+                                Log.e(TAG, "onNavigationItemSelected: 出现了没有被指定功能的Navigation menuItem");
+                        }
+                        fragmentTransaction.commit();
+                        return true;
                     }
-                    fragmentTransaction.commit();
-                    return true;
                 }
-            }
         );
     }
-    
-
 
 
 
