@@ -14,7 +14,7 @@ public class User {
      * @param password 密码
      * @return 密码是否正确
      */
-    static boolean checkAccountAndPwd(String account, String password){
+    public static boolean checkAccountAndPwd(String account, String password){
         if(TEST_ACCOUNT.equals(account) && TEST_PWD.equals(password)){
             return true;
         }else{

@@ -22,6 +22,7 @@
             android:name=".LoginActivity"
             android:layout_centerInParent="true"
             android:theme="@style/Untitled" />
+
         <activity android:name=".RegisterActivity" />
     </application>
 

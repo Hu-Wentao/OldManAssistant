@@ -84,7 +84,7 @@
     <TextView
         android:id="@+id/action"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="38dp"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical"
         android:text="@string/action_bar_login"
@@ -126,7 +126,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="276dp"
-        android:text="|"
+        android:text="@string/tv_split_bar"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"

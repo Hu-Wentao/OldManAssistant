@@ -20,21 +20,17 @@ import com.example.huwt.oldmanassistant.main.fragment.CircleFragment;
 import com.example.huwt.oldmanassistant.main.fragment.PushFragment;
 import com.example.huwt.oldmanassistant.main.fragment.SearchFragment;
 
-public class MainActivity extends AppCompatActivity implements
-//        View.OnClickListener,
-        SearchFragment.OnFragmentInteractionListener,
-        ChildFragment.OnFragmentInteractionListener,
-        PushFragment.OnFragmentInteractionListener,
-        CircleFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
+
     private static final String TAG = "Main";
     // fragment
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
 
-    private SearchFragment searchFragment;
-    private ChildFragment childFragment;
-    private PushFragment pushFragment;
-    private CircleFragment circleFragment;
+    private SearchFragment searchFragment;  // 一键搜索
+    private ChildFragment childFragment;    // 子女关联
+    private PushFragment pushFragment;      // 生活推送
+    private CircleFragment circleFragment;  // 活动圈
     // other
     private BottomNavigationView bnv;
     private TextView tvTitleBar;
@@ -45,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         initView();
-        // 如果尚未登录, 就打开 LoginActivity
+        // TODO 如果尚未登录, 就打开 LoginActivity
 //        if (!User.isLogin) {
 //            startActivity(new Intent(MainActivity.this, LoginActivity.class));
 //            MainActivity.this.finish();
@@ -107,9 +103,9 @@ public class MainActivity extends AppCompatActivity implements
                                 fragmentTransaction.replace(R.id.main_fragment_container, circleFragment);
                                 break;
                             default:
-                                Log.e(TAG, "onNavigationItemSelected: 出现了没有被指定功能的Navigation menuItem");
+                                throw new RuntimeException("onNavigationItemSelected: 出现了没有被指定功能的Navigation menuItem");
                         }
-                        fragmentTransaction.commit();
+                        fragmentTransaction.commit();   // 事务结束
                         return true;
                     }
                 }
@@ -117,55 +113,34 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-
     @Override
     public void  onResumeFragments(){
-//        fragmentTransaction.commit();
-    }
-
-    /**
-     * 填充菜单选项
-     * @param menu
-     * @return
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the main; this adds items to the action bar if it is present.
-        //填充选项菜单（读取XML文件、解析、加载到Menu组件上）
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    /**
-     * 重写OptionsItemSelected(MenuItem item)来响应菜单项(MenuItem)的点击事件（根据id来区分是哪个item）
-     * @param item  菜单的点击事件
-     * @return
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            case R.id.menu_logout:
-                User.isLogin = false;
-                Toast.makeText(this, "@string/menu/logout", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//                MainActivity.this.finish();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * 此方法主要作用是从fragment向activity传递数据
-     * @param uri
-     */
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
     }
+
+// TODO 准备弃用此菜单
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        //填充选项菜单（读取XML文件、解析、加载到Menu组件上）
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
+
+// todo 准备弃用此菜单
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.menu_logout:
+//                User.isLogin = false;
+//                Toast.makeText(this, "@string/menu/logout", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+////                MainActivity.this.finish();
+//                break;
+//            default:
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
 
 }

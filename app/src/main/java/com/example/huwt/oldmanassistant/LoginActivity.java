@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btn_login).setOnClickListener(this);
         findViewById(R.id.tv_register).setOnClickListener(this);
         findViewById(R.id.tv_forget_pwd).setOnClickListener(this);
-
         Log.v(TAG, "进入Login !========================");
 
 
@@ -46,7 +45,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.tv_register:
                 // 注册
-                Toast.makeText(LoginActivity.this, "注册.. ", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, RegisterActivity.class));
+                this.finish();
+//                Toast.makeText(LoginActivity.this, "注册.. ", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_forget_pwd:
                 // 如果忘记密码

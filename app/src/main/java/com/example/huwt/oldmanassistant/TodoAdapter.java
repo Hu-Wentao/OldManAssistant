@@ -1,5 +1,6 @@
 package com.example.huwt.oldmanassistant;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder> {
     private ArrayList<TodoItemResource> rvItemData;
 
-    public TodoAdapter(ArrayList<TodoItemResource> rvItemData){     // 构造方法, 设置初始数据
+    public TodoAdapter(Context context, ArrayList<TodoItemResource> rvItemData){     // 构造方法, 设置初始数据    // todo 获取了Context, 但未使用
         this.rvItemData = rvItemData;
     }
 
