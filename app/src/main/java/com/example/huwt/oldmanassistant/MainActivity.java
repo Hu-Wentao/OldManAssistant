@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huwt.oldmanassistant.db.User;
 import com.example.huwt.oldmanassistant.main.fragment.ChildFragment;
 import com.example.huwt.oldmanassistant.main.fragment.CircleFragment;
 import com.example.huwt.oldmanassistant.main.fragment.PushFragment;

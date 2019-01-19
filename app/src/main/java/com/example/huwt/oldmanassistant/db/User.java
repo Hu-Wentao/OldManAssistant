@@ -1,6 +1,8 @@
-package com.example.huwt.oldmanassistant;
+package com.example.huwt.oldmanassistant.db;
 
-
+/**
+ * 用于本地测试
+ */
 public class User {
     private static final String TAG = "User";
     public static final String TEST_ACCOUNT = "123";

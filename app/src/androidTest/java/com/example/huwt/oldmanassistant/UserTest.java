@@ -1,5 +1,7 @@
 package com.example.huwt.oldmanassistant;
 
+import com.example.huwt.oldmanassistant.db.User;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

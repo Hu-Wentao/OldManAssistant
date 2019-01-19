@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.huwt.oldmanassistant.db.User;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "Login";
 

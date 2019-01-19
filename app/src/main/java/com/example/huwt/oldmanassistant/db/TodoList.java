@@ -5,6 +5,9 @@ import com.example.huwt.oldmanassistant.TodoItemResource;
 
 import java.util.ArrayList;
 
+/**
+ * 用于测试, //todo 使用内容提供器取代本类
+ */
 public class TodoList {
 
     public static ArrayList<TodoItemResource> getTodoData(){
