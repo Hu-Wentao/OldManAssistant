@@ -14,7 +14,7 @@
       android:layout_marginTop="8dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/remind_ic_sport"
+      app:srcCompat="@drawable/todo_ic_sport"
       tools:src="@tools:sample/avatars" />
 
   <TextView

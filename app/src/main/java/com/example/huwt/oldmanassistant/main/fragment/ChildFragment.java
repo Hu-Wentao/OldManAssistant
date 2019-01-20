@@ -1,7 +1,7 @@
 package com.example.huwt.oldmanassistant.main.fragment;
 
-import android.content.Context;
-import android.net.Uri;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.huwt.oldmanassistant.R;
-import com.example.huwt.oldmanassistant.TodoAdapter;
-import com.example.huwt.oldmanassistant.db.TodoList;
+import com.example.huwt.oldmanassistant.db.TodoAdapter;
+import com.example.huwt.oldmanassistant.db.DbContract;
+import com.example.huwt.oldmanassistant.db.TodoDbHelper;
 
 
 public class ChildFragment extends Fragment {
@@ -20,8 +21,7 @@ public class ChildFragment extends Fragment {
 
     private RecyclerView rvTodo;
     private TodoAdapter todoAdapter;
-
-
+    private SQLiteDatabase mDb;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class ChildFragment extends Fragment {
         // 为该Fragment填充布局
         view = inflater.inflate(R.layout.fragment_child, container, false);
 
+        mDb = new TodoDbHelper(getContext()).getReadableDatabase();
         initRecyclerView();
         return view;
     }
@@ -44,7 +45,7 @@ public class ChildFragment extends Fragment {
         rvTodo = view.findViewById(R.id.rv_todo);
 
         // 创建Adapter
-        todoAdapter = new TodoAdapter(getActivity(), TodoList.getTodoData()); // todo 在此处设置 TodoList内容
+        todoAdapter = new TodoAdapter(getActivity(), getTodoList()); // 在此处设置 TodoList内容
 
         // 设置Adapter
         rvTodo.setAdapter(todoAdapter);
@@ -55,22 +56,27 @@ public class ChildFragment extends Fragment {
         // 设置Item分割线 // 也可以在item的layout中实现
         //,,,,
 
-        // 设置RecyclerView的监听事件
+        // 设置RecyclerView的点击监听事件
 
 
+    }
+
+    // 获取 所有todoList
+    private Cursor getTodoList(){
+        return mDb.query(DbContract.ToDoEntry.TABLE_NAME,
+        new String[]{DbContract.ToDoEntry._ID,              // id
+                DbContract.ToDoEntry.COLUMN_TOTO_TITLE,     // title
+                DbContract.ToDoEntry.COLUMN_TODO_DETAIL,    // detail
+                DbContract.ToDoEntry.COLUMN_TODO_TYPE,      // type
+                DbContract.ToDoEntry.COLUMN_TODO_DEADLINE}, // deadline
+                null,
+                null,
+                null,
+                null,
+                DbContract.ToDoEntry._ID);
     }
 
 
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-//        mListener = null;
-    }
 }

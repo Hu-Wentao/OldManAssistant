@@ -1,6 +1,7 @@
-package com.example.huwt.oldmanassistant;
+package com.example.huwt.oldmanassistant.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,21 +10,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.huwt.oldmanassistant.R;
 
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder> {
-    private ArrayList<TodoItemResource> rvItemData;
-
-    public TodoAdapter(Context context, ArrayList<TodoItemResource> rvItemData){     // 构造方法, 设置初始数据    // todo 获取了Context, 但未使用
-        this.rvItemData = rvItemData;
+    private Context mContext;
+    private Cursor mCursor;
+    public TodoAdapter(Context context, Cursor cursor){     // 构造方法, 设置初始数据    // todo 获取了Context, 但未使用
+        this.mCursor = cursor;
     }
 
     /**
      * 更新数据
-     * @param newData 新的数据
+     * @param newCursor 新的数据
      */
-    public void updata(ArrayList<TodoItemResource> newData){
-        this.rvItemData = newData;
+    public void updata(Cursor newCursor){
+        if(this.mCursor != null)this.mCursor.close();
+
+        this.mCursor = newCursor;
+        if(newCursor != null){
+            this.notifyDataSetChanged();
+        }
     }
 
     public class TodoViewHolder extends RecyclerView.ViewHolder{
@@ -36,6 +42,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
             ivTodoImg = itemView.findViewById(R.id.rv_iv_item_img);
             tvTodoTitle = itemView.findViewById(R.id.rv_tv_item_title);
             tvTodoDetail = itemView.findViewById(R.id.rv_tv_item_detail);
+            // todo 添加一个todo截止日期
         }
     }
 
@@ -52,14 +59,27 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
     @Override
     public void onBindViewHolder(@NonNull TodoAdapter.TodoViewHolder viewHolder, int i) {
         // 绑定数据
-        viewHolder.ivTodoImg.setImageResource(rvItemData.get(i).todoImgSrc);// 设置图片
-        viewHolder.tvTodoTitle.setText(rvItemData.get(i).todoTitle);
-        viewHolder.tvTodoDetail.setText(rvItemData.get(i).todoDetail);
+        if(!mCursor.moveToPosition(i)) return;
+
+        String title = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TOTO_TITLE));
+        viewHolder.tvTodoTitle.setText(title);
+
+        String detail = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DETAIL));
+        viewHolder.tvTodoDetail.setText(detail);
+
+        // todo 通过type设置相应的图标
+        String type = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_TYPE));
+//        viewHolder.ivTodoImg.setImageResource(.get(i).todoImgSrc);// 设置图片
+
+
+        // todo 为todo加入截止日期
+        String deadLine = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DEADLINE));
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mCursor.getCount();
     }
 
 
