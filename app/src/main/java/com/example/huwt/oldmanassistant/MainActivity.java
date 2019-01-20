@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     // fragment
     private FragmentTransaction fragmentTransaction;
-    private FragmentManager fragmentManager;
+//    private FragmentManager fragmentManager;
 
     private SearchFragment searchFragment;  // 一键搜索
     private ChildFragment childFragment;    // 子女关联
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     /** 初始化底部导航栏 */
     private void initBottomNavigationBar(){
         // 启用碎片
-        fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager
                 .beginTransaction();    // ft是 FragmentTransaction 的实例
         // 初始化Fragment

@@ -2,6 +2,8 @@ package com.example.huwt.oldmanassistant.db;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -67,10 +69,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         String detail = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DETAIL));
         viewHolder.tvTodoDetail.setText(detail);
 
-        // todo 通过type设置相应的图标
-        String type = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_TYPE));
-//        viewHolder.ivTodoImg.setImageResource(.get(i).todoImgSrc);// 设置图片
-
+        int type = mCursor.getInt(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_TYPE));
+        viewHolder.ivTodoImg.setImageDrawable(getImgFromIntTODOType(type, mContext));// 设置图片
 
         // todo 为todo加入截止日期
         String deadLine = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DEADLINE));
@@ -84,5 +84,16 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
 
 
 
+    private Drawable getImgFromIntTODOType(int type, Context context){
+        switch (type){
+            case 0:
+                return context.getDrawable(R.drawable.todo_ic_clock);
+            case 1:
+                return context.getDrawable(R.drawable.todo_ic_medicine);
+            case 2:
+                return context.getDrawable(R.drawable.todo_ic_sport);
+        }
+        throw new RuntimeException("没有相应的case");
+    }
 
 }
