@@ -13,7 +13,9 @@
             android:id="@+id/tv_guid_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="一键搜索" />
+            android:textSize="23sp"
+            android:padding="16dp"
+            android:text="功能简介" />
     </ScrollView>
 
 </FrameLayout>

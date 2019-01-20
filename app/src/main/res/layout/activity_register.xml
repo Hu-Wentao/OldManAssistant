@@ -7,6 +7,21 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/action"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:text="@string/action_bar_register"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tv_account"
         android:layout_width="60dp"
         android:layout_height="40dp"
@@ -15,6 +30,7 @@
         android:layout_weight="1"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/tv_account"
+        android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +46,7 @@
         android:background="@null"
         android:ems="10"
         android:hint="@string/et_account_hint"
-        android:inputType="phone"
+        android:inputType="textShortMessage"
         android:singleLine="true"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_account"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +61,7 @@
         android:layout_weight="1"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/tv_password"
+        android:textAlignment="textStart"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_account" />
@@ -64,8 +81,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:targetApi="o" />
 
+    <TextView
+        android:id="@+id/tv_confirm_pwd"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/tv_request_pwd"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pwd" />
+
     <EditText
-        android:id="@+id/et_pwd2"
+        android:id="@+id/et_confirm_pwd"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -73,14 +103,96 @@
         android:autofillHints=""
         android:background="@null"
         android:ems="10"
-        android:hint="@string/et_request_password_hint"
+        android:hint="@string/et_confirm_password_hint"
         android:inputType="textPassword"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_request_pwd"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_confirm_pwd"
         app:layout_constraintEnd_toEndOf="parent"
         tools:targetApi="o" />
 
+    <TextView
+        android:id="@+id/tv_user_sex"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="@string/tv_user_sex"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_confirm_pwd" />
+
+    <Switch
+        android:id="@+id/switch_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="190dp"
+        android:text="@string/switch_male_female"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_user_sex"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_user_type"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="@string/tv_user_type"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_sex" />
+
+    <Switch
+        android:id="@+id/switch_user_type"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="190dp"
+        android:text="@string/switch_old_young"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_user_type"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_user_birthday"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/tv_user_birthday"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_type" />
+
     <EditText
-        android:id="@+id/et_pwd6"
+        android:id="@+id/et_user_birthday"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/et_user_birthday_hint"
+        android:inputType="textShortMessage"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_user_birthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/tv_user_phone"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/tv_user_phone"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_birthday" />
+
+    <EditText
+        android:id="@+id/et_user_phone"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -89,23 +201,8 @@
         android:background="@null"
         android:ems="10"
         android:hint="@string/et_user_phone_hint"
-        android:inputType="textPassword"
+        android:inputType="phone"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_user_phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:targetApi="o" />
-
-    <EditText
-        android:id="@+id/et_pwd7"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="1"
-        android:autofillHints=""
-        android:background="@null"
-        android:ems="10"
-        android:hint="@string/et_user_address_hint"
-        android:inputType="textPassword"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_user_adress"
         app:layout_constraintEnd_toEndOf="parent"
         tools:targetApi="o" />
 
@@ -121,86 +218,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_user_phone" />
 
-    <TextView
-        android:id="@+id/action"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center_vertical"
-        android:text="@string/action_bar_register"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+    <EditText
+        android:id="@+id/et_user_address"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/et_user_address_hint"
+        android:inputType="textShortMessage"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_user_adress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_user_phone"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/tv_user_phone"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_birthday" />
-
-    <TextView
-        android:id="@+id/tv_user_birthday"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/tv_user_birthday"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_type" />
-
-    <TextView
-        android:id="@+id/tv_user_type"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="@string/tv_user_type"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_sex" />
-
-    <TextView
-        android:id="@+id/tv_user_sex"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="@string/tv_user_sex"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_request_pwd" />
-
-    <TextView
-        android:id="@+id/tv_request_pwd"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/tv_request_pwd"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pwd" />
+        tools:targetApi="o" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -213,18 +247,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_user_adress" />
-
-    <EditText
-        android:id="@+id/et_user_birthday"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="@string/et_user_birthday_hint"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_user_birthday"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:autofillHints="" />
 
 
 </android.support.constraint.ConstraintLayout>

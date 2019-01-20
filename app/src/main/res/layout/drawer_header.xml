@@ -5,7 +5,7 @@ android:layout_height="wrap_content">
 <!--todo 更改src图片-->
 <ImageView
     android:scaleType="fitXY"
-    android:src="@drawable/ic_navigation_circle"
+    android:src="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 

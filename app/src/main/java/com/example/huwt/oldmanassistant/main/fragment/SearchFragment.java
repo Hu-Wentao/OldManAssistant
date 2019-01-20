@@ -38,6 +38,15 @@ public class SearchFragment extends Fragment {
 
     private void init(){
         mGuidTextView = view.findViewById(R.id.tv_guid_info);
+
+        mGuidTextView.append("\n\n由于时间仓促, 目前已完成的功能可通过以下操作演示\n" +
+                "\n***** 注意 ***** " +
+                "\n 为了保证功能测试的顺利进行, 可以本页面内容用相机拍摄暂存 \n\n" +
+                "\n1. 侧滑菜单:  在本页面沿左边缘向右滑动, 打开侧边菜单\n" +
+                "\n2. 用户登录:  在侧边菜单中, 选择 退出登录, 以进入登录页面\n" +
+                "\n3. 用户注册;  在登录页面中, 选择 注册账号, 可注册任意数量可用于登录的账户\n" +
+                "\n4. TodoList:  ...\n" +
+                "\n5. 拨打电话:  ...\n");
     }
 
 

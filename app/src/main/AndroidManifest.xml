@@ -23,7 +23,10 @@
             android:layout_centerInParent="true"
             android:theme="@style/Untitled" />
 
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Untitled"
+            />
     </application>
 
 </manifest>

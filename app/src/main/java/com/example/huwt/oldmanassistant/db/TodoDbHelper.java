@@ -28,7 +28,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DbContract.ToDoEntry.TABEL_NAME);
         onCreate(db);
     }
 }

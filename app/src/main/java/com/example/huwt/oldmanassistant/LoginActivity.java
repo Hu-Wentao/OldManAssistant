@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        findViewById(R.id.btn_login).setOnClickListener(this);
+        findViewById(R.id.btn_register).setOnClickListener(this);
         findViewById(R.id.tv_register).setOnClickListener(this);
         findViewById(R.id.tv_forget_pwd).setOnClickListener(this);
         Log.v(TAG, "进入Login !========================");
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_login:
+            case R.id.btn_register:
                 // 如果账户密码正确就进入主页面 MainActivity, 否则就弹出Toast
                 String account = ((EditText)findViewById(R.id.et_account)).getText().toString();
                 String pwd = ((EditText)findViewById(R.id.et_pwd)).getText().toString();
