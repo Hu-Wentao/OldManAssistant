@@ -20,6 +20,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity"
             android:layout_centerInParent="true"
             android:theme="@style/Untitled" />
 

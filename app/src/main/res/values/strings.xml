@@ -47,12 +47,17 @@
     <string name="navigation_push">生活推送</string>
     <string name="navigation_circle">生活圈</string>
 
-    <!-- NavigationView todo 放入更多-->
-    <string name="menu_logout">退出登录</string>
+    <!-- NavigationView -->
+    <string name="menu_logout">注销</string>
+    <string name="menu_login_or_register">登录/注册</string>
+
+    <string name="menu_user_info">个人信息</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_about">关于</string>
 
     <!-- other -->
     <string name="uninitialized" translatable="false">Uninitialized</string>
-
+    <string name="drawer_header_tv">我 的</string>
 
 
 </resources>

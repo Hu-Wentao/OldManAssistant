@@ -17,7 +17,7 @@ public class DbContract {
 
     // 待办事项信息
     public static final class ToDoEntry implements BaseColumns {
-        public static final String TABEL_NAME = "todo";
+        public static final String TABLE_NAME = "todo";
         public static final String COLUMN_TODO_TYPE = "todoType"; // todo的类型, 据此判断使用不同的图标
         public static final String COLUMN_TOTO_TITLE = "todoTitle";
         public static final String COLUMN_TODO_DETAIL = "todoDetail"; // todo的详情

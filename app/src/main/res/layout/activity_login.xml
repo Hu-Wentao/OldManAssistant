@@ -30,7 +30,7 @@
         android:autofillHints=" "
         android:ems="10"
         android:hint="@string/et_account_hint"
-        android:inputType="phone"
+        android:inputType="textShortMessage"
         android:singleLine="true"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_account"
         app:layout_constraintEnd_toEndOf="parent"
