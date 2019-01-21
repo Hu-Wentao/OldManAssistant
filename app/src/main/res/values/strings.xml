@@ -31,12 +31,12 @@
     <string name="switch_old_young"> 老人 / 子女 </string>
 
     <string name="tv_user_birthday">出生年月</string>
-    <string name="et_user_birthday_hint" >(格式为: yyyy年mm月dd日)</string>
+    <string name="et_user_birthday_hint">(格式为: yyyy年mm月dd日)</string>
 
-    <string name="tv_user_phone" >联系电话</string>
+    <string name="tv_user_phone">联系电话</string>
     <string name="et_user_phone_hint">请输入手机号</string>
 
-    <string name="tv_user_address" >家庭住址</string>
+    <string name="tv_user_address">家庭住址</string>
     <string name="et_user_address_hint">请输入家庭住址</string>
 
     <string name="btn_register">注册</string>

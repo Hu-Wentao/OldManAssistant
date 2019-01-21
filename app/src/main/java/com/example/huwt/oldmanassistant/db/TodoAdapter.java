@@ -70,7 +70,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         viewHolder.tvTodoDetail.setText(detail);
 
         int type = mCursor.getInt(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_TYPE));
-        viewHolder.ivTodoImg.setImageDrawable(getImgFromIntTODOType(type, mContext));// 设置图片
+        viewHolder.ivTodoImg.setImageDrawable(getImgFromIntTODOType(type, mContext));// 通过不同的数值为RecyclerView中相应的Item设置不同的图标
 
         // todo 为todo加入截止日期
         String deadLine = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DEADLINE));
