@@ -15,7 +15,7 @@ import com.example.huwt.oldmanassistant.db.DbContract;
 import com.example.huwt.oldmanassistant.db.UserDbHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
-    // todo P0 将登录页与注册页合并
+    // todo 将登录页与注册页合并
     // UI
     private EditText mAccountEt;
     private EditText mPwdEt;
