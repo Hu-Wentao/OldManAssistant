@@ -92,7 +92,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // todo P1 找回密码
                 Toast.makeText(LoginActivity.this, "忘记密码.. ", Toast.LENGTH_SHORT).show();
                 break;
-
         }
     }
 

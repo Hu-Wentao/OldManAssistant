@@ -51,7 +51,7 @@
 
 
             <TextView
-                android:id="@+id/contact1"
+                android:id="@+id/tv_contact1"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_weight="1"
@@ -64,7 +64,7 @@
                 tools:layout_editor_absoluteY="321dp" />
 
             <TextView
-                android:id="@+id/contact2"
+                android:id="@+id/tv_contact2"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_weight="1"

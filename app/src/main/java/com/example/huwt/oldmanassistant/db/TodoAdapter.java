@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.huwt.oldmanassistant.R;
 
@@ -19,6 +20,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
     private Cursor mCursor;
     public TodoAdapter(Context context, Cursor cursor){     // 构造方法, 设置初始数据    // todo 获取了Context, 但未使用
         this.mCursor = cursor;
+        this.mContext = context;
     }
 
     /**
@@ -62,19 +64,22 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
     public void onBindViewHolder(@NonNull TodoAdapter.TodoViewHolder viewHolder, int i) {
         // 绑定数据
         if(!mCursor.moveToPosition(i)) return;
-
+        // 标题
         String title = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TOTO_TITLE));
         viewHolder.tvTodoTitle.setText(title);
-
+        // 详情
         String detail = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DETAIL));
         viewHolder.tvTodoDetail.setText(detail);
-
+        // todo类型
         int type = mCursor.getInt(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_TYPE));
         viewHolder.ivTodoImg.setImageDrawable(getImgFromIntTODOType(type, mContext));// 通过不同的数值为RecyclerView中相应的Item设置不同的图标
 
         // todo 为todo加入截止日期
         String deadLine = mCursor.getString(mCursor.getColumnIndex(DbContract.ToDoEntry.COLUMN_TODO_DEADLINE));
 
+        // todo的id
+        long id = mCursor.getLong(mCursor.getColumnIndex(DbContract.ToDoEntry._ID));
+        viewHolder.itemView.setTag(id);
     }
 
     @Override
