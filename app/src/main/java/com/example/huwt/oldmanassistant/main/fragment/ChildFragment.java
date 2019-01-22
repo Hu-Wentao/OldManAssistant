@@ -114,7 +114,7 @@ public class ChildFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_contact1:
+            case R.id.tv_contact1: // todo 添加一个设置拨号号码的功能按钮, 可以将号码存储到用户数据中
                 callPhone("17681339426");
                 break;
             case R.id.tv_contact2:

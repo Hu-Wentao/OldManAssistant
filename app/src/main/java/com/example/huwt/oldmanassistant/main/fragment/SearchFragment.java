@@ -45,7 +45,7 @@ public class SearchFragment extends Fragment {
                 "\n3. 用户注册;  在登录页面中, 选择 注册账号, 可注册任意数量可用于登录的账户\n" +
                 "\t3.1 注册信息输入错误: 将展示错误详情\n" +
                 "\n4. TodoList:  左右滑动移除Todo项\n" +
-                "\n5. 拨打电话:  ...\n");
+                "\n5. 拨打电话:  点击图标拨打预设的电话号码\n");
     }
 
 
