@@ -1,7 +1,9 @@
-package com.example.huwt.oldmanassistant;
+package com.example.huwt.oldmanassistant.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.huwt.oldmanassistant.R;
 
 public class UserInfoActivity extends AppCompatActivity {
 

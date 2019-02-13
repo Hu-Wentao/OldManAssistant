@@ -1,4 +1,4 @@
-package com.example.huwt.oldmanassistant;
+package com.example.huwt.oldmanassistant.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huwt.oldmanassistant.R;
 import com.example.huwt.oldmanassistant.db.DbContract;
 import com.example.huwt.oldmanassistant.db.UserDbHelper;
 
@@ -60,14 +61,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 );
         if(cursor.getCount() == 0){
             Toast.makeText(this, "没有此用户名, 请先注册", Toast.LENGTH_SHORT).show();
+            cursor.close();
             return false;
         }
         while (cursor.moveToNext()){
             if(cursor.getString(cursor.getColumnIndex(DbContract.UserEntry.COLUMN_USER_PWD)).equals(pwd)){
+                cursor.close();
                 return true;
             }
         }
         Toast.makeText(this, "密码错误!", Toast.LENGTH_SHORT).show();
+        cursor.close();
         return false;
     }
 

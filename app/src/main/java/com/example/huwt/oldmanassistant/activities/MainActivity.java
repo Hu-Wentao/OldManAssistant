@@ -1,6 +1,5 @@
-package com.example.huwt.oldmanassistant;
+package com.example.huwt.oldmanassistant.activities;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,15 +11,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huwt.oldmanassistant.DemoData;
+import com.example.huwt.oldmanassistant.R;
 import com.example.huwt.oldmanassistant.main.fragment.ChildFragment;
 import com.example.huwt.oldmanassistant.main.fragment.CircleFragment;
 import com.example.huwt.oldmanassistant.main.fragment.PushFragment;

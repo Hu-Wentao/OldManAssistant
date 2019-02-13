@@ -1,4 +1,4 @@
-package com.example.huwt.oldmanassistant;
+package com.example.huwt.oldmanassistant.activities;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +12,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huwt.oldmanassistant.BuildConfig;
+import com.example.huwt.oldmanassistant.R;
 import com.example.huwt.oldmanassistant.db.DbContract;
 import com.example.huwt.oldmanassistant.db.UserDbHelper;
 
@@ -78,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     /** 验证出生年月是否符合要求 */     // todo 年份合法性验证,可改用日期选择器
     private boolean checkBirthday(){
         String day = mBirthdayEt.getText().toString();
-        if(Pattern.matches(" ^(^(\\d{4}|\\d{2})(\\-|\\/|\\.)\\d{1,2}\\3\\d{1,2}$)|(^\\d{4}年\\d{1,2}月\\d{1,2}日$)$", day)){
+        if(Pattern.matches("^(^(\\d{4}|\\d{2})(\\-|\\/|\\.)\\d{1,2}\\3\\d{1,2}$)|(^\\d{4}年\\d{1,2}月\\d{1,2}日$)$", day)){
             return true;
         }
         showErr("出生日期格式不正确");

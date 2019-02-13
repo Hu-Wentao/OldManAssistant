@@ -3,29 +3,36 @@
     package="com.example.huwt.oldmanassistant">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserInfoActivity"></activity>
+        <activity android:name=".activities.UserInfoActivity">
+            <intent-filter>
+                <!--Deep Links -->
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:theme="@style/Untitled">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <!--Deep Links -->
+                <action android:name="android.intent.action.VIEW" />
 
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:layout_centerInParent="true"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/Untitled" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:theme="@style/Untitled" />
     </application>
 
